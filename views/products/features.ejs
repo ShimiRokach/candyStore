@@ -1,0 +1,7 @@
+<% layout('layouts/boilerplate')%>
+
+    <main class="container mt-5 mb-5">
+        <% for (let product of products){%>
+            <img src=<%=product.image%> alt=<%=product.name%>>
+                <% }%>
+    </main>

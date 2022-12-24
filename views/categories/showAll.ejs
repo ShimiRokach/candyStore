@@ -1,0 +1,44 @@
+<% layout('layouts/boilerplate')%>
+
+    <main class="container mt-5 mb-5">
+        <div class="row">
+            <h1 class="text-center">CATEGORIES PAGE</h1>
+            <div class="col-6 offset-4">
+                <div class="mb-3">
+                    <a class="btn btn-primary" href="/categories/add" role="button">Add Category</a>
+                </div>
+                <% for (let category of categories){%>
+
+                    <div class="card mb-3" style="max-width: 540px;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img class="img-fluid" src=<%=category.image%> alt=<%=category.image%>>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <%=category.name%>
+                                    </h5>
+                                    <p class="card-text">
+                                        <%=category.name%>
+                                    </p>
+                                    <a class="btn btn-info" href="/categories/<%=category._id%>" role="button">
+                                        Category Page
+                                    </a>
+                                    <a class="btn btn-warning" href="/categories/<%=category._id%>/edit" role="button">
+                                        Edit
+                                    </a>
+                                    <form style=display:inline; action="/categories/<%=category._id%>?_method=DELETE"
+                                        method="POST">
+                                        <button class="btn btn-danger">Delete</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <% }%>
+
+            </div>
+        </div>
+    </main>

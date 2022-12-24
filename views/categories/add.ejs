@@ -1,0 +1,26 @@
+<% layout('layouts/boilerplate')%>
+
+    <main class="container mt-5 mb-5">
+        <div class="row">
+            <h1 class="text-center">Please add your new category</h1>
+            <div class="col-6 offset-3">
+                <form action="/categories/add" method="POST" class='needs-validation' novalidate>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Image Url</label>
+                        <input type="text" class="form-control" id="image" name="image" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <a class="btn btn-secondary" href="/" role="button">
+                        Cancel
+                    </a>
+
+                </form>
+            </div>
+        </div>
+    </main>

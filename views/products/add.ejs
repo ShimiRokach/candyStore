@@ -1,0 +1,57 @@
+<% layout('layouts/boilerplate')%>
+
+    <main class="container mt-5 mb-5">
+        <div class="row">
+            <h1 class="text-center">Please add your new product</h1>
+            <div class="col-6 offset-3">
+                <form action="/products/add" method="POST" class='needs-validation' novalidate>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="price" class="form-label">Price</label>
+                        <input type="number" class="form-control" id="price" name="price" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="quantity" class="form-label">Quantity</label>
+                        <input type="number" class="form-control" id="quantity" name="quantity" required>
+
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Image Url</label>
+                        <input type="text" class="form-control" id="image" name="image" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <input type="text" class="form-control" id="description" name="description" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="category" class="form-label">Select Category :</label>
+                        <select class="form-select" required name="category" id="category">
+                            <option value="" selected>Open this select menu</option>
+                            <% for(let category of categories){ %>
+                                <option value="<%=category._id%>">
+                                    <%=category.name%>
+                                </option>
+                                <% } %>
+                        </select>
+                        <div class="invalid-feedback">
+                            please select category
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <a class="btn btn-secondary" href="/" role="button">
+                        Cancel
+                    </a>
+
+                </form>
+            </div>
+        </div>
+    </main>

@@ -1,0 +1,32 @@
+<% layout('layouts/boilerplate')%>
+
+  <main class="container mt-5 mb-5">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Price</th>
+          <th scope="col">quantity</th>
+          <th scope="col">category</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for (let product of products){%>
+          <tr>
+            <td>
+              <%=product.name %>
+            </td>
+            <td>
+              <%=product.price %>
+            </td>
+            <td>
+              <%=product.quantity %>
+            </td>
+            <td>
+              <%=product.category %>
+            </td>
+          </tr>
+          <% }%>
+      </tbody>
+    </table>
+  </main>

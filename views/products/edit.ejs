@@ -1,0 +1,67 @@
+<% layout('layouts/boilerplate')%>
+
+    <main class="container mt-5 mb-5">
+        <div class="row">
+            <h1 class="text-center">Please edit your product</h1>
+            <div class="col-6 offset-3">
+                <form action="/products/<%=product._id%>?_method=PUT" method="POST" class='needs-validation' novalidate>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" value="<%=product.name%>" id="name" name="name"
+                            required>
+                        <div class="valid-feedback">
+                            valid
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="price" class="form-label">Price</label>
+                        <input type="number" class="form-control" value="<%=product.price%>" id="price" name="price"
+                            required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="quantity" class="form-label">Quantity</label>
+                        <input type="number" class="form-control" value="<%=product.quantity%>" id="quantity"
+                            name="quantity" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Image Url</label>
+                        <input type="text" class="form-control" value="<%=product.image%>" id="image" name="image"
+                            required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <input type="text" class="form-control" value="<%=product.description%>" id="description"
+                            name="description" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="category" class="form-label">Select Category :</label>
+                        <select class="form-select" name="category" id="category">
+                            <% for(let category of categories){ %>
+                                <option value="<%=category._id%>" <%=product.category.name===category.name ? 'selected'
+                                    : '' %>
+                                    >
+                                    <%=category.name%>
+                                </option>
+                                <% } %>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <a class="btn btn-secondary" href="/products/<%=product._id%>" role="button">
+                        Cancel
+                    </a>
+
+                </form>
+            </div>
+        </div>
+    </main>
+
+
+    </body>
+
+    </html>
